@@ -1,7 +1,7 @@
-/* analog-in-bricklet
- * Copyright (C) 2010-2012 Olaf Lüke <olaf@tinkerforge.com>
+/* analog-in-v2-bricklet
+ * Copyright (C) 2015 Olaf Lüke <olaf@tinkerforge.com>
  *
- * analog-in.h: Implementation of Analog In Bricklet messages
+ * analog-in.h: Implementation of Analog In 2.0 Bricklet messages
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -38,8 +38,8 @@
 #define FID_GET_ANALOG_VALUE_CALLBACK_THRESHOLD 10
 #define FID_SET_DEBOUNCE_PERIOD 11
 #define FID_GET_DEBOUNCE_PERIOD 12
-#define FID_SET_AVERAGING 13
-#define FID_GET_AVERAGING 14
+#define FID_SET_MOVING_AVERAGE 13
+#define FID_GET_MOVING_AVERAGE 14
 #define FID_VOLTAGE 15
 #define FID_ANALOG_VALUE 16
 #define FID_VOLTAGE_REACHED 17
@@ -64,23 +64,23 @@ typedef struct {
 typedef struct {
 	MessageHeader header;
 	uint8_t length;
-} __attribute__((__packed__)) SetAveraging;
+} __attribute__((__packed__)) SetMovingAverage;
 
 typedef struct {
 	MessageHeader header;
-} __attribute__((__packed__)) GetAveraging;
+} __attribute__((__packed__)) GetMovingAverage;
 
 typedef struct {
 	MessageHeader header;
 	uint8_t length;
-} __attribute__((__packed__)) GetAveragingReturn;
+} __attribute__((__packed__)) GetMovingAverageReturn;
 
 int32_t analog_value_from_mc(const int32_t value);
 int32_t voltage_from_analog_value(const int32_t value);
 void set_range(const ComType com, const SetRange *data);
 void get_range(const ComType com, const GetRange *data);
-void set_averaging(const ComType com, const SetAveraging *data);
-void get_averaging(const ComType com, const GetAveraging *data);
+void set_moving_average(const ComType com, const SetMovingAverage *data);
+void get_moving_average(const ComType com, const GetMovingAverage *data);
 void reinitialize_moving_average(void);
 
 void invocation(const ComType com, const uint8_t *data);

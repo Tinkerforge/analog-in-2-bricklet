@@ -1,7 +1,7 @@
-/* analog-in-bricklet
- * Copyright (C) 2010-2012 Olaf Lüke <olaf@tinkerforge.com>
+/* analog-in-v2-bricklet
+ * Copyright (C) 2015 Olaf Lüke <olaf@tinkerforge.com>
  *
- * config.h: Analog In Bricklet specific configuration
+ * config.h: Analog In 2.0 Bricklet specific configuration
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -40,6 +40,7 @@
 #define BRICKLET_DEVICE_IDENTIFIER 251
 
 #define MAX_ADC_VALUE ((1 << 12) - 1)
+#define PIN_AD (BS->pin1_ad)
 
 #define LOGGING_LEVEL LOGGING_DEBUG
 #define DEBUG_BRICKLET 0

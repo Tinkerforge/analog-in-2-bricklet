@@ -1,7 +1,7 @@
-/* analog-in-bricklet
- * Copyright (C) 2010-2012 Olaf Lüke <olaf@tinkerforge.com>
+/* analog-in-v2-bricklet
+ * Copyright (C) 2015 Olaf Lüke <olaf@tinkerforge.com>
  *
- * analog-in.c: Implementation of Analog In Bricklet messages
+ * analog-in.c: Implementation of Analog In 2.0 Bricklet messages
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -57,13 +57,13 @@ const uint8_t smp_length = sizeof(smp);
 
 void invocation(const ComType com, const uint8_t *data) {
 	switch(((SimpleStandardMessage*)data)->header.fid) {
-		case FID_SET_AVERAGING: {
-			set_averaging(com, (SetAveraging*)data);
+		case FID_SET_MOVING_AVERAGE: {
+			set_moving_average(com, (SetMovingAverage*)data);
 			return;
 		}
 
-		case FID_GET_AVERAGING: {
-			get_averaging(com, (GetAveraging*)data);
+		case FID_GET_MOVING_AVERAGE: {
+			get_moving_average(com, (GetMovingAverage*)data);
 			return;
 		}
 
@@ -80,6 +80,10 @@ void invocation(const ComType com, const uint8_t *data) {
 
 void constructor(void) {
 	_Static_assert(sizeof(BrickContext) <= BRICKLET_CONTEXT_MAX_SIZE, "BrickContext too big");
+
+	PIN_AD.type = PIO_INPUT;
+	PIN_AD.attribute = PIO_DEFAULT;
+    BA->PIO_Configure(&PIN_AD, 1);
 
 	adc_channel_enable(BS->adc_channel);
 	SLEEP_MS(2);
@@ -131,7 +135,7 @@ int32_t voltage_from_analog_value(const int32_t value) {
 	return voltage;
 }
 
-void set_averaging(const ComType com, const SetAveraging *data) {
+void set_moving_average(const ComType com, const SetMovingAverage *data) {
 	if(BC->moving_average_upto != data->length) {
 		if(data->length < 1) {
 			BC->moving_average_upto = 1;
@@ -147,14 +151,13 @@ void set_averaging(const ComType com, const SetAveraging *data) {
 	BA->com_return_setter(com, data);
 }
 
-void get_averaging(const ComType com, const GetAveraging *data) {
-	GetAveragingReturn gar;
+void get_moving_average(const ComType com, const GetMovingAverage *data) {
+	GetMovingAverageReturn gmar;
+	gmar.header        = data->header;
+	gmar.header.length = sizeof(GetMovingAverageReturn);
+	gmar.length        = BC->moving_average_upto;
 
-	gar.header        = data->header;
-	gar.header.length = sizeof(GetAveragingReturn);
-	gar.length        = BC->moving_average_upto;
-
-	BA->send_blocking_with_timeout(&gar, sizeof(GetAveragingReturn), com);
+	BA->send_blocking_with_timeout(&gmar, sizeof(GetMovingAverageReturn), com);
 }
 
 void tick(const uint8_t tick_type) {
