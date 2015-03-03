@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.4)
 
-SET(PROJECT_NAME analog-in-2-bricklet)
+SET(PROJECT_NAME analog-in-v2-bricklet)
 SET(CHIP sam3s4)
 SET(BOARD sam3s-ek)
 SET(MCU cortex-m3\ -mthumb)
