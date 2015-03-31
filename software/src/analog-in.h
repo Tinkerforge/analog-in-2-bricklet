@@ -49,20 +49,6 @@
 
 typedef struct {
 	MessageHeader header;
-	uint8_t range;
-} __attribute__((__packed__)) SetRange;
-
-typedef struct {
-	MessageHeader header;
-} __attribute__((__packed__)) GetRange;
-
-typedef struct {
-	MessageHeader header;
-	uint8_t range;
-} __attribute__((__packed__)) GetRangeReturn;
-
-typedef struct {
-	MessageHeader header;
 	uint8_t length;
 } __attribute__((__packed__)) SetMovingAverage;
 
@@ -77,8 +63,6 @@ typedef struct {
 
 int32_t analog_value_from_mc(const int32_t value);
 int32_t voltage_from_analog_value(const int32_t value);
-void set_range(const ComType com, const SetRange *data);
-void get_range(const ComType com, const GetRange *data);
 void set_moving_average(const ComType com, const SetMovingAverage *data);
 void get_moving_average(const ComType com, const GetMovingAverage *data);
 void reinitialize_moving_average(void);
