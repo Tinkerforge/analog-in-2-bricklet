@@ -1,4 +1,4 @@
-Analog In 2.0 Bricklet
+Analog In Bricklet 2.0
 ======================
 
 **This Bricklet is currently Work In Progress.**
