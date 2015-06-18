@@ -1,4 +1,4 @@
-#!/usr/bin/perl  
+#!/usr/bin/perl
 
 use Tinkerforge::IPConnection;
 use Tinkerforge::BrickletAnalogInV2;
@@ -22,7 +22,7 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
 # Set Period for voltage callback to 1s (1000ms)
-# Note: The callback is only called every second if the 
+# Note: The callback is only called every second if the
 #       voltage has changed since the last call!
 $ai->set_voltage_callback_period(1000);
 

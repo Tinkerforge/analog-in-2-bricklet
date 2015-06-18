@@ -37,9 +37,9 @@ int main() {
 
 	// Register voltage callback to function cb_voltage
 	analog_in_v2_register_callback(&ai,
-	                            ANALOG_IN_V2_CALLBACK_VOLTAGE,
-	                            (void *)cb_voltage,
-	                            NULL);
+	                               ANALOG_IN_V2_CALLBACK_VOLTAGE,
+	                               (void *)cb_voltage,
+	                               NULL);
 
 	printf("Press key to exit\n");
 	getchar();

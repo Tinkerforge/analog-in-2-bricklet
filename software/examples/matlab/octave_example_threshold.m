@@ -1,6 +1,6 @@
 function octave_example_threshold()
     more off;
-    
+
     HOST = "localhost";
     PORT = 4223;
     UID = "ABC"; % Change to your UID
@@ -19,7 +19,7 @@ function octave_example_threshold()
 
     % Configure threshold for "smaller than 5V" (unit is mV)
     ai.setVoltageCallbackThreshold(ai.THRESHOLD_OPTION_SMALLER, 5*1000, 0);
-    
+
     input("Press any key to exit...\n", "s");
     ipcon.disconnect();
 end

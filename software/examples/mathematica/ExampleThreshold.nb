@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      6461,        151]
-NotebookOptionsPosition[      6185,        137]
-NotebookOutlinePosition[      6523,        152]
-CellTagsIndexPosition[      6480,        149]
+NotebookDataLength[      6510,        152]
+NotebookOptionsPosition[      6239,        138]
+NotebookOutlinePosition[      6572,        153]
+CellTagsIndexPosition[      6529,        150]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -48,8 +48,9 @@ Cell[BoxData[{
   RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
  RowBox[{"ai", "=", 
   RowBox[{"NETNew", "[", 
-   RowBox[{"\"\<Tinkerforge.BrickletAnalogInV2\>\"", ",", "uid", ",", "ipcon"}],
-    "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+   "\"\<Tinkerforge.BrickletAnalogInV2\>\"", ",", "uid", ",", "ipcon"}], 
+   "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ipcon", "@", 
    RowBox[{"Connect", "[", 
@@ -133,11 +134,11 @@ Cell[BoxData[{
    3.600609340818445*^9, 3.600609544802136*^9}, {3.600609618298398*^9, 
    3.6006096224709063`*^9}, 3.600610394591187*^9, {3.6006813189185*^9, 
    3.600681472190928*^9}, {3.600681510568192*^9, 3.6006815109077997`*^9}, 
-   3.6006831479175043`*^9}]
+   3.6006831479175043`*^9, {3.643610250366897*^9, 3.643610250790819*^9}}]
 },
 WindowSize->{1521, 867},
-WindowMargins->{{242, Automatic}, {85, Automatic}},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+WindowMargins->{{241, 156}, {84, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -152,7 +153,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 676, 12, 55, "Input"],
-Cell[1236, 34, 4945, 101, 605, "Input"]
+Cell[1236, 34, 4999, 102, 605, "Input"]
 }
 ]
 *)

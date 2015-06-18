@@ -13,7 +13,7 @@ function matlab_example_callback()
     % Don't use device before ipcon is connected
 
     % Set Period for voltage callback to 1s (1000ms)
-    % Note: The callback is only called every second if the 
+    % Note: The callback is only called every second if the
     %       voltage has changed since the last call!
     ai.setVoltageCallbackPeriod(1000);
 

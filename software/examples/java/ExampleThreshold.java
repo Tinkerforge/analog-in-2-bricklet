@@ -5,7 +5,7 @@ public class ExampleThreshold {
 	private static final String HOST = "localhost";
 	private static final int PORT = 4223;
 	private static final String UID = "ABC"; // Change to your UID
-	
+
 	// Note: To make the example code cleaner we do not handle exceptions. Exceptions you
 	//       might normally want to catch are described in the documentation
 	public static void main(String args[]) throws Exception {
@@ -21,7 +21,7 @@ public class ExampleThreshold {
 		// Configure threshold for "smaller than 5V" (unit is mV)
 		ai.setVoltageCallbackThreshold('<', (short)(5*1000), (short)0);
 
-		// Add and implement voltage reached listener 
+		// Add and implement voltage reached listener
 		// (called if voltage is smaller than 5V)
 		ai.addVoltageReachedListener(new BrickletAnalogInV2.VoltageReachedListener() {
 			public void voltageReached(int voltage) {

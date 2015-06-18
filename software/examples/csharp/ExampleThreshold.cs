@@ -12,7 +12,7 @@ class Example
 		System.Console.WriteLine("Voltage dopped below 5V: " + voltage/1000.0 + "V");
 	}
 
-	static void Main() 
+	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
 		BrickletAnalogInV2 ai = new BrickletAnalogInV2(UID, ipcon); // Create device object

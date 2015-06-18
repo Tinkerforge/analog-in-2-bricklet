@@ -21,7 +21,7 @@ int main() {
 
 	// Create device object
 	AnalogInV2 ai;
-	analog_in_v2_create(&ai, UID, &ipcon); 
+	analog_in_v2_create(&ai, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -34,10 +34,10 @@ int main() {
 	analog_in_v2_set_debounce_period(&ai, 10000);
 
 	// Register threshold reached callback to function cb_reached
-	analog_in_v2_register_callback(&ai, 
-	                            ANALOG_IN_V2_CALLBACK_VOLTAGE_REACHED,
-	                            (void *)cb_reached,
-	                            NULL);
+	analog_in_v2_register_callback(&ai,
+	                               ANALOG_IN_V2_CALLBACK_VOLTAGE_REACHED,
+	                               (void *)cb_reached,
+	                               NULL);
 
 	// Configure threshold for "smaller than 5V" (unit is mV)
 	analog_in_v2_set_voltage_callback_threshold(&ai, '<', 5*1000, 0);
