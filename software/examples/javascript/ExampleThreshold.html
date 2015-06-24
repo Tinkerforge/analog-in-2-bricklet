@@ -51,8 +51,7 @@
                 ai.on(Tinkerforge.BrickletAnalogInV2.CALLBACK_VOLTAGE_REACHED,
                     // Callback for voltage smaller than 5V
                     function(voltage) {
-                        textArea.value += 'Voltage: '+voltage/1000+' V';
-                        textArea.value += '\n';
+                        textArea.value += 'Voltage: '+voltage/1000+' V\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

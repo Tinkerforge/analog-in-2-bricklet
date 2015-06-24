@@ -51,8 +51,7 @@
                 ai.on(Tinkerforge.BrickletAnalogInV2.CALLBACK_VOLTAGE,
                     // Callback function for voltage callback (parameter has unit mV)
                     function(voltage) {
-                        textArea.value += 'Voltage: '+voltage/1000+' V';
-                        textArea.value += '\n';
+                        textArea.value += 'Voltage: '+voltage/1000+' V\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );
