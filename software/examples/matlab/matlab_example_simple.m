@@ -14,7 +14,7 @@ function matlab_example_simple()
 
     % Get current voltage (unit is mV)
     voltage = ai.getVoltage();
-    fprintf('Voltage: %g V', voltage/1000.0);
+    fprintf('Voltage: %g V\n', voltage/1000.0);
 
     input('Press any key to exit...\n', 's');
     ipcon.disconnect();
