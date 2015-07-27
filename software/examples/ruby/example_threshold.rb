@@ -8,7 +8,7 @@ include Tinkerforge
 
 HOST = 'localhost'
 PORT = 4223
-UID = 'ABC' # Change to your UID
+UID = 'XYZ' # Change to your UID
 
 ipcon = IPConnection.new # Create IP connection
 ai = BrickletAnalogInV2.new UID, ipcon # Create device object
@@ -19,12 +19,12 @@ ipcon.connect HOST, PORT # Connect to brickd
 # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 ai.set_debounce_period 10000
 
-# Register threshold reached callback for voltage smaller than 5V
+# Register threshold reached callback for voltage smaller than 5 V (parameter has unit mV)
 ai.register_callback(BrickletAnalogInV2::CALLBACK_VOLTAGE_REACHED) do |voltage|
-  puts "Voltage dropped below 5V: #{voltage/1000.0}"
+  puts "Voltage: #{voltage/1000.0} V"
 end
 
-# Configure threshold for "smaller than 5V" (unit is mV)
+# Configure threshold for "smaller than 5 V" (unit is mV)
 ai.set_voltage_callback_threshold '<', 5*1000, 0
 
 puts 'Press key to exit'

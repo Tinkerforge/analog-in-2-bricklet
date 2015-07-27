@@ -1,10 +1,10 @@
-import com.tinkerforge.BrickletAnalogInV2;
 import com.tinkerforge.IPConnection;
+import com.tinkerforge.BrickletAnalogInV2;
 
 public class ExampleThreshold {
 	private static final String HOST = "localhost";
 	private static final int PORT = 4223;
-	private static final String UID = "ABC"; // Change to your UID
+	private static final String UID = "XYZ"; // Change to your UID
 
 	// Note: To make the example code cleaner we do not handle exceptions. Exceptions you
 	//       might normally want to catch are described in the documentation
@@ -18,14 +18,13 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		ai.setDebouncePeriod(10000);
 
-		// Configure threshold for "smaller than 5V" (unit is mV)
+		// Configure threshold for "smaller than 5 V" (unit is mV)
 		ai.setVoltageCallbackThreshold('<', (short)(5*1000), (short)0);
 
-		// Add and implement voltage reached listener
-		// (called if voltage is smaller than 5V)
+		// Add threshold reached listener for voltage smaller than 5 V (parameter has unit mV)
 		ai.addVoltageReachedListener(new BrickletAnalogInV2.VoltageReachedListener() {
 			public void voltageReached(int voltage) {
-				System.out.println("Voltage dropped below 5V: " + voltage/1000.0);
+				System.out.println("Voltage: " + voltage/1000.0 + " V");
 			}
 		});
 

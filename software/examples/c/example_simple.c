@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "ABC" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
 int main() {
 	// Create IP connection
@@ -26,7 +26,7 @@ int main() {
 	// Get current voltage (unit is mV)
 	uint16_t voltage;
 	if(analog_in_v2_get_voltage(&ai, &voltage) < 0) {
-		fprintf(stderr, "Could not get value, probably timeout\n");
+		fprintf(stderr, "Could not get voltage, probably timeout\n");
 		exit(1);
 	}
 

@@ -3,7 +3,7 @@
 
 HOST = "localhost"
 PORT = 4223
-UID = "ABC" # Change to your UID
+UID = "XYZ" # Change to your UID
 
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_analog_in_v2 import AnalogInV2
@@ -17,8 +17,7 @@ if __name__ == "__main__":
 
     # Get current voltage (unit is mV)
     voltage = ai.get_voltage()
-
-    print('Voltage: ' + str(voltage/1000.0) + 'V')
+    print('Voltage: ' + str(voltage/1000.0) + ' V')
 
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()

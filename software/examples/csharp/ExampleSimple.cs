@@ -4,7 +4,7 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "ABC"; // Change to your UID
+	private static string UID = "XYZ"; // Change to your UID
 
 	static void Main()
 	{
@@ -16,7 +16,6 @@ class Example
 
 		// Get current voltage (unit is mV)
 		int voltage = ai.GetVoltage();
-
 		System.Console.WriteLine("Voltage: " + voltage/1000.0 + " V");
 
 		System.Console.WriteLine("Press enter to exit");
