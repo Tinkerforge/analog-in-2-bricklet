@@ -6,7 +6,7 @@ PORT = 4223
 UID = "XYZ" # Change to your UID
 
 from tinkerforge.ip_connection import IPConnection
-from tinkerforge.bricklet_analog_in_v2 import AnalogInV2
+from tinkerforge.bricklet_analog_in_v2 import BrickletAnalogInV2
 
 # Callback function for voltage smaller than 5 V (parameter has unit mV)
 def cb_voltage_reached(voltage):
@@ -14,7 +14,7 @@ def cb_voltage_reached(voltage):
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    ai = AnalogInV2(UID, ipcon) # Create device object
+    ai = BrickletAnalogInV2(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
