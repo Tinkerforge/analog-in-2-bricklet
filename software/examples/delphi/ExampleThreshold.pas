@@ -12,22 +12,22 @@ type
     ipcon: TIPConnection;
     ai: TBrickletAnalogInV2;
   public
-    procedure ReachedCB(sender: TBrickletAnalogInV2; const voltage: word);
+    procedure VoltageReachedCB(sender: TBrickletAnalogInV2; const voltage: word);
     procedure Execute;
   end;
 
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'ABC'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
 
-{ Callback for voltage smaller than 5V }
-procedure TExample.ReachedCB(sender: TBrickletAnalogInV2; const voltage: word);
+{ Callback procedure for voltage smaller than 5 V (parameter has unit mV) }
+procedure TExample.VoltageReachedCB(sender: TBrickletAnalogInV2; const voltage: word);
 begin
-  WriteLn(Format('Voltage dropped below 5V: %f', [voltage/1000.0]));
+  WriteLn(Format('Voltage: %f V', [voltage/1000.0]));
 end;
 
 procedure TExample.Execute;
@@ -45,10 +45,10 @@ begin
   { Get threshold callbacks with a debounce time of 10 seconds (10000ms) }
   ai.SetDebouncePeriod(10000);
 
-  { Register threshold reached callback to procedure ReachedCB }
-  ai.OnVoltageReached := {$ifdef FPC}@{$endif}ReachedCB;
+  { Register threshold reached callback to procedure VoltageReachedCB }
+  ai.OnVoltageReached := {$ifdef FPC}@{$endif}VoltageReachedCB;
 
-  { Configure threshold for "smaller than 5V" (unit is mV) }
+  { Configure threshold for "smaller than 5 V" (unit is mV) }
   ai.SetVoltageCallbackThreshold('<', 5*1000, 0);
 
   WriteLn('Press key to exit');
