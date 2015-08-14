@@ -19,7 +19,7 @@ public class ExampleThreshold {
 		ai.setDebouncePeriod(10000);
 
 		// Configure threshold for "smaller than 5 V" (unit is mV)
-		ai.setVoltageCallbackThreshold('<', (short)(5*1000), (short)0);
+		ai.setVoltageCallbackThreshold('<', 5*1000, 0);
 
 		// Add threshold reached listener for voltage smaller than 5 V (parameter has unit mV)
 		ai.addVoltageReachedListener(new BrickletAnalogInV2.VoltageReachedListener() {
