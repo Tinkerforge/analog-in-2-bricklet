@@ -42,13 +42,13 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
+  { Register voltage callback to procedure VoltageCB }
+  ai.OnVoltage := {$ifdef FPC}@{$endif}VoltageCB;
+
   { Set period for voltage callback to 1s (1000ms)
     Note: The voltage callback is only called every second
           if the voltage has changed since the last call! }
   ai.SetVoltageCallbackPeriod(1000);
-
-  { Register voltage callback to procedure VoltageCB }
-  ai.OnVoltage := {$ifdef FPC}@{$endif}VoltageCB;
 
   WriteLn('Press key to exit');
   ReadLn;

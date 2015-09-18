@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleSimple
@@ -14,10 +15,10 @@ Module ExampleSimple
 
         ' Get current voltage (unit is mV)
         Dim voltage As Integer = ai.GetVoltage()
-        System.Console.WriteLine("Voltage: " + (voltage/1000.0).ToString() + " V")
+        Console.WriteLine("Voltage: " + (voltage/1000.0).ToString() + " V")
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      6299,        150]
-NotebookOptionsPosition[      6029,        136]
-NotebookOutlinePosition[      6361,        151]
-CellTagsIndexPosition[      6318,        148]
+NotebookDataLength[      6166,        150]
+NotebookOptionsPosition[      5896,        136]
+NotebookOutlinePosition[      6228,        151]
+CellTagsIndexPosition[      6185,        148]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,56 +33,35 @@ Cell[BoxData[{
    3.600685698446945*^9, 3.600685698699895*^9}}],
 
 Cell[BoxData[{
- RowBox[{"host", "=", "\"\<localhost\>\""}], "\[IndentingNewLine]", 
- RowBox[{"port", "=", "4223"}], "\[IndentingNewLine]", 
+ RowBox[{"host", "=", "\"\<localhost\>\""}], "\n", 
+ RowBox[{"port", "=", "4223"}], "\n", 
  RowBox[{
-  RowBox[{"uid", "=", "\"\<amb\>\""}], 
-  RowBox[{"(*", " ", 
-   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], " ", "*)"}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
+  RowBox[{"uid", "=", "\"\<XYZ\>\""}], 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], "*)"}], "\n", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{
    "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
-   " ", "*)"}]}], "\[IndentingNewLine]", 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{"ipcon", "=", 
   RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
  RowBox[{"ai", "=", 
   RowBox[{"NETNew", "[", 
    RowBox[{
    "\"\<Tinkerforge.BrickletAnalogInV2\>\"", ",", "uid", ",", "ipcon"}], 
-   "]"}]}], "\[IndentingNewLine]", 
+   "]"}]}], "\n", 
  RowBox[{
   RowBox[{"ipcon", "@", 
    RowBox[{"Connect", "[", 
-    RowBox[{"host", ",", "port"}], "]"}]}], "\n", "\n", 
-  RowBox[{"(*", " ", 
-   RowBox[{
-   "Set", " ", "Period", " ", "for", " ", "voltage", " ", "callback", " ", 
-    "to", " ", "1", "s", " ", 
-    RowBox[{"(", 
-     RowBox[{"1000", "ms"}], ")"}]}], " ", "*)"}], "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{"Note", ":", " ", 
-    RowBox[{
-    "The", " ", "voltage", " ", "callback", " ", "is", " ", "only", " ", 
-     "called", " ", "every", " ", "second", " ", "if", " ", "the"}]}], " ", 
-   "*)"}], "\n", 
-  RowBox[{"(*", "       ", 
-   RowBox[{
-   "voltage", " ", "has", " ", "changed", " ", "since", " ", "the", " ", 
-    "last", " ", 
-    RowBox[{"call", "!"}]}], " ", "*)"}]}], "\n", 
- RowBox[{
-  RowBox[{"ai", "@", 
-   RowBox[{"SetVoltageCallbackPeriod", "[", "1000", "]"}]}], 
-  "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
+    RowBox[{"host", ",", "port"}], "]"}]}], "\n", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{
    "Callback", " ", "function", " ", "for", " ", "voltage", " ", "callback", 
     " ", 
     RowBox[{"(", 
-     RowBox[{"parameter", " ", "has", " ", "unit", " ", "mV"}], ")"}]}], " ", 
-   "*)"}]}], "\n", 
+     RowBox[{"parameter", " ", "has", " ", "unit", " ", "mV"}], ")"}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"VoltageCB", "[", 
    RowBox[{"sender_", ",", "voltage_"}], "]"}], ":=", "\[IndentingNewLine]", 
@@ -91,21 +70,41 @@ Cell[BoxData[{
     RowBox[{"ToString", "[", 
      RowBox[{"N", "[", 
       RowBox[{"Quantity", "[", 
-       RowBox[{"voltage", ",", "\"\<mV\>\""}], "]"}], "]"}], "]"}]}], 
-   "]"}]}], "\[IndentingNewLine]", 
+       RowBox[{"voltage", ",", "\"\<V/1000\>\""}], "]"}], "]"}], "]"}]}], 
+   "]"}]}], "\n", 
  RowBox[{
   RowBox[{"AddEventHandler", "[", 
    RowBox[{
     RowBox[{"ai", "@", "Voltage"}], ",", "VoltageCB"}], "]"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Set", " ", "period", " ", "for", " ", "voltage", " ", "callback", " ", 
+    "to", " ", "1", "s", " ", 
+    RowBox[{"(", 
+     RowBox[{"1000", "ms"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Note", ":", 
+    RowBox[{
+    "The", " ", "voltage", " ", "callback", " ", "is", " ", "only", " ", 
+     "called", " ", "every", " ", "second"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "if", " ", "the", " ", "voltage", " ", "has", " ", "changed", " ", "since",
+     " ", "the", " ", "last", " ", 
+    RowBox[{"call", "!"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ai", "@", 
+   RowBox[{"SetVoltageCallbackPeriod", "[", "1000", "]"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], 
   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{"Clean", " ", "up"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Clean", " ", "up"}], "*)"}]}], "\n", 
  RowBox[{"ipcon", "@", 
-  RowBox[{"Disconnect", "[", "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"ReleaseNETObject", "[", "ai", "]"}], "\[IndentingNewLine]", 
+  RowBox[{"Disconnect", "[", "]"}]}], "\n", 
+ RowBox[{"ReleaseNETObject", "[", "ai", "]"}], "\n", 
  RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
  CellChangeTimes->{{3.600075175574196*^9, 3.600075177574486*^9}, {
    3.600075518821967*^9, 3.60007554243471*^9}, {3.600075580562348*^9, 
@@ -132,10 +131,11 @@ Cell[BoxData[{
    3.60060918655473*^9, {3.600609227515625*^9, 3.600609227953993*^9}, {
    3.6006808535111303`*^9, 3.6006809380224857`*^9}, {3.600681151693446*^9, 
    3.600681153080058*^9}, {3.6006856236513557`*^9, 3.600685623998728*^9}, {
-   3.643610140409451*^9, 3.643610140822545*^9}}]
+   3.643610140409451*^9, 3.643610140822545*^9}, {3.651556926231967*^9, 
+   3.651556928616041*^9}}]
 },
 WindowSize->{1521, 867},
-WindowMargins->{{311, 88}, {49, Automatic}},
+WindowMargins->{{310, 87}, {48, Automatic}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
@@ -151,10 +151,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 676, 12, 55, "Input"],
-Cell[1236, 34, 4789, 100, 561, "Input"]
+Cell[1236, 34, 4656, 100, 561, "Input"]
 }
 ]
 *)
 
 (* End of internal cache information *)
-

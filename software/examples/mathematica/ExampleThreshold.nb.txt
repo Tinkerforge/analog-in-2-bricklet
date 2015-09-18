@@ -3,28 +3,28 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="amb"(* Change to your UID *)
+uid="XYZ"(*Change to your UID*)
 
-(* Create IPConnection and device object *)
+(*Create IPConnection and device object*)
 ipcon=NETNew["Tinkerforge.IPConnection"]
 ai=NETNew["Tinkerforge.BrickletAnalogInV2",uid,ipcon]
 ipcon@Connect[host,port]
 
-(* Get threshold callbacks with a debounce time of 10 seconds (10000ms) *)
+(*Get threshold callbacks with a debounce time of 10 seconds (10000ms)*)
 ai@SetDebouncePeriod[10000]
 
-(* Callback for voltage smaller than 5V *)
+(*Callback function for voltage reached callback (parameter has unit mV)*)
 VoltageReachedCB[sender_,voltage_]:=
- Print["Voltage dropped below 5V: "<>ToString[N[Quantity[voltage,"mV"]]]<>"."]
+ Print["Voltage: "<>ToString[N[Quantity[voltage,"V/1000"]]]]
 AddEventHandler[ai@VoltageReached,VoltageReachedCB]
 
-(* Configure threshold for "smaller than 5V" (unit is mV) *)
+(*Configure threshold for voltage "smaller than 5 V" (unit is mV)*)
 option=Tinkerforge`BrickletAnalogInV2`THRESHOLDUOPTIONUSMALLER
 ai@SetVoltageCallbackThreshold[option,5*1000,0]
 
 Input["Click OK to exit"]
 
-(* Clean up *)
+(*Clean up*)
 ipcon@Disconnect[]
 ReleaseNETObject[ai]
 ReleaseNETObject[ipcon]

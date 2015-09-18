@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -9,7 +10,7 @@ class Example
 	// Callback function for voltage callback (parameter has unit mV)
 	static void VoltageCB(BrickletAnalogInV2 sender, int voltage)
 	{
-		System.Console.WriteLine("Voltage: " + voltage/1000.0 + " V");
+		Console.WriteLine("Voltage: " + voltage/1000.0 + " V");
 	}
 
 	static void Main()
@@ -20,16 +21,16 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
+		// Register voltage callback to function VoltageCB
+		ai.Voltage += VoltageCB;
+
 		// Set period for voltage callback to 1s (1000ms)
 		// Note: The voltage callback is only called every second
 		//       if the voltage has changed since the last call!
 		ai.SetVoltageCallbackPeriod(1000);
 
-		// Register voltage callback to function VoltageCB
-		ai.Voltage += VoltageCB;
-
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

@@ -17,6 +17,6 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 my $voltage = $ai->get_voltage();
 print "Voltage: " . $voltage/1000.0 . " V\n";
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

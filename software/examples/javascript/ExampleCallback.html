@@ -6,7 +6,7 @@
     </head>
     <body>
         <div style="text-align:center;">
-            <h1>Analog In 2.0 Bricklet Callback Example</h1>
+            <h1>Analog In Bricklet 2.0 Callback Example</h1>
             <p>
                 <input value="localhost" id="host" type="text" size="20">:
                 <input value="4280" id="port" type="text" size="5">,
@@ -34,24 +34,25 @@
                 var ai = new Tinkerforge.BrickletAnalogInV2(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
                 ); // Connect to brickd
                 // Don't use device before ipcon is connected
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Set Period for voltage callback to 1s (1000ms)
-                        // Note: The callback is only called every second if the
-                        // voltage has changed since the last call!
+                    function (connectReason) {
+                        // Set period for voltage callback to 1s (1000ms)
+                        // Note: The voltage callback is only called every second
+                        //       if the voltage has changed since the last call!
                         ai.setVoltageCallbackPeriod(1000);
                     }
                 );
+
                 // Register voltage callback
                 ai.on(Tinkerforge.BrickletAnalogInV2.CALLBACK_VOLTAGE,
                     // Callback function for voltage callback (parameter has unit mV)
-                    function(voltage) {
-                        textArea.value += 'Voltage: '+voltage/1000+' V\n';
+                    function (voltage) {
+                        textArea.value += 'Voltage: ' + voltage/1000.0 + ' V\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }
                 );

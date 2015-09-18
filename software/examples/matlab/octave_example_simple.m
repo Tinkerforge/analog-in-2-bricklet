@@ -3,7 +3,7 @@ function octave_example_simple()
 
     HOST = "localhost";
     PORT = 4223;
-    UID = "ABC"; % Change to your UID
+    UID = "XYZ"; % Change to your UID
 
     ipcon = java_new("com.tinkerforge.IPConnection"); % Create IP connection
     ai = java_new("com.tinkerforge.BrickletAnalogInV2", UID, ipcon); % Create device object
@@ -15,6 +15,6 @@ function octave_example_simple()
     voltage = ai.getVoltage();
     fprintf("Voltage: %g V\n", voltage/1000.0);
 
-    input("Press any key to exit...\n", "s");
+    input("Press key to exit\n", "s");
     ipcon.disconnect();
 end
