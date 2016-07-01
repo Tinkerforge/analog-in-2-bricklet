@@ -5,7 +5,7 @@ use Tinkerforge::BrickletAnalogInV2;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'XYZ'; # Change to your UID
+use constant UID => 'XYZ'; # Change XYZ to the UID of your Analog In Bricklet 2.0
 
 # Callback subroutine for voltage callback (parameter has unit mV)
 sub cb_voltage

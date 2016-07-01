@@ -8,7 +8,7 @@ use Tinkerforge\BrickletAnalogInV2;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Analog In Bricklet 2.0
 
 // Callback function for voltage callback (parameter has unit mV)
 function cb_voltage($voltage)

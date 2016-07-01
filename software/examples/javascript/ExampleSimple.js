@@ -2,7 +2,7 @@ var Tinkerforge = require('tinkerforge');
 
 var HOST = 'localhost';
 var PORT = 4223;
-var UID = 'XYZ'; // Change to your UID
+var UID = 'XYZ'; // Change XYZ to the UID of your Analog In Bricklet 2.0
 
 var ipcon = new Tinkerforge.IPConnection(); // Create IP connection
 var ai = new Tinkerforge.BrickletAnalogInV2(UID, ipcon); // Create device object
