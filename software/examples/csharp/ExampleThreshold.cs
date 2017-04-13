@@ -25,7 +25,7 @@ class Example
 		ai.SetDebouncePeriod(10000);
 
 		// Register voltage reached callback to function VoltageReachedCB
-		ai.VoltageReached += VoltageReachedCB;
+		ai.VoltageReachedCallback += VoltageReachedCB;
 
 		// Configure threshold for voltage "smaller than 5 V" (unit is mV)
 		ai.SetVoltageCallbackThreshold('<', 5*1000, 0);
