@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:tinkerforge
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -10,7 +11,6 @@ LIBS:cmos4000
 LIBS:adc-dac
 LIBS:memory
 LIBS:xilinx
-LIBS:special
 LIBS:microcontrollers
 LIBS:dsp
 LIBS:microchip
@@ -29,7 +29,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:analog_in-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -666,7 +665,7 @@ F 1 "5V" H 9200 850 40  0000 C CNN
 F 2 "kicad-libraries:MiniMelf" H 9200 950 60  0001 C CNN
 F 3 "" H 9200 950 60  0000 C CNN
 	1    9200 950 
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L ZENER D1
@@ -677,7 +676,7 @@ F 1 "3V3" H 8450 850 40  0000 C CNN
 F 2 "kicad-libraries:MiniMelf" H 8450 950 60  0001 C CNN
 F 3 "" H 8450 950 60  0000 C CNN
 	1    8450 950 
-	0    -1   -1   0   
+	0    1    1    0   
 $EndComp
 $Comp
 L GND #PWR21
