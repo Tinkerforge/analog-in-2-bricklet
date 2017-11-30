@@ -22,7 +22,7 @@ Module ExampleThreshold
         ai.SetDebouncePeriod(10000)
 
         ' Register voltage reached callback to subroutine VoltageReachedCB
-        AddHandler ai.VoltageReached, AddressOf VoltageReachedCB
+        AddHandler ai.VoltageReachedCallback, AddressOf VoltageReachedCB
 
         ' Configure threshold for voltage "smaller than 5 V" (unit is mV)
         ai.SetVoltageCallbackThreshold("<"C, 5*1000, 0)

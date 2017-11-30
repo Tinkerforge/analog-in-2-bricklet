@@ -16,7 +16,7 @@ ai@SetDebouncePeriod[10000]
 (*Callback function for voltage reached callback (parameter has unit mV)*)
 VoltageReachedCB[sender_,voltage_]:=
  Print["Voltage: "<>ToString[N[Quantity[voltage,"V/1000"]]]]
-AddEventHandler[ai@VoltageReached,VoltageReachedCB]
+AddEventHandler[ai@VoltageReachedCallback,VoltageReachedCB]
 
 (*Configure threshold for voltage "smaller than 5 V" (unit is mV)*)
 option=Tinkerforge`BrickletAnalogInV2`THRESHOLDUOPTIONUSMALLER

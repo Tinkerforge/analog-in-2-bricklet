@@ -13,7 +13,7 @@ ipcon@Connect[host,port]
 (*Callback function for voltage callback (parameter has unit mV)*)
 VoltageCB[sender_,voltage_]:=
  Print["Voltage: "<>ToString[N[Quantity[voltage,"V/1000"]]]]
-AddEventHandler[ai@Voltage,VoltageCB]
+AddEventHandler[ai@VoltageCallback,VoltageCB]
 
 (*Set period for voltage callback to 1s (1000ms)*)
 (*Note: The voltage callback is only called every second*)

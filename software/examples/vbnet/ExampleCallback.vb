@@ -19,7 +19,7 @@ Module ExampleCallback
         ' Don't use device before ipcon is connected
 
         ' Register voltage callback to subroutine VoltageCB
-        AddHandler ai.Voltage, AddressOf VoltageCB
+        AddHandler ai.VoltageCallback, AddressOf VoltageCB
 
         ' Set period for voltage callback to 1s (1000ms)
         ' Note: The voltage callback is only called every second
