@@ -7,7 +7,7 @@
 #define PORT 4223
 #define UID "XYZ" // Change XYZ to the UID of your Analog In Bricklet 2.0
 
-// Callback function for voltage reached callback (parameter has unit mV)
+// Callback function for voltage reached callback
 void cb_voltage_reached(uint16_t voltage, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
@@ -39,7 +39,7 @@ int main(void) {
 	                               (void *)cb_voltage_reached,
 	                               NULL);
 
-	// Configure threshold for voltage "smaller than 5 V" (unit is mV)
+	// Configure threshold for voltage "smaller than 5 V"
 	analog_in_v2_set_voltage_callback_threshold(&ai, '<', 5*1000, 0);
 
 	printf("Press key to exit\n");

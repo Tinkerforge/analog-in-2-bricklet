@@ -7,7 +7,7 @@ use constant HOST => 'localhost';
 use constant PORT => 4223;
 use constant UID => 'XYZ'; # Change XYZ to the UID of your Analog In Bricklet 2.0
 
-# Callback subroutine for voltage reached callback (parameter has unit mV)
+# Callback subroutine for voltage reached callback
 sub cb_voltage_reached
 {
     my ($voltage) = @_;
@@ -27,7 +27,7 @@ $ai->set_debounce_period(10000);
 # Register voltage reached callback to subroutine cb_voltage_reached
 $ai->register_callback($ai->CALLBACK_VOLTAGE_REACHED, 'cb_voltage_reached');
 
-# Configure threshold for voltage "smaller than 5 V" (unit is mV)
+# Configure threshold for voltage "smaller than 5 V"
 $ai->set_voltage_callback_threshold('<', 5*1000, 0);
 
 print "Press key to exit\n";

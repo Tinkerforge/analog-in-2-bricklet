@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Analog In Bricklet 2.0
 
-// Callback function for voltage reached callback (parameter has unit mV)
+// Callback function for voltage reached callback
 function cb_voltageReached($voltage)
 {
     echo "Voltage: " . $voltage/1000.0 . " V\n";
@@ -28,7 +28,7 @@ $ai->setDebouncePeriod(10000);
 // Register voltage reached callback to function cb_voltageReached
 $ai->registerCallback(BrickletAnalogInV2::CALLBACK_VOLTAGE_REACHED, 'cb_voltageReached');
 
-// Configure threshold for voltage "smaller than 5 V" (unit is mV)
+// Configure threshold for voltage "smaller than 5 V"
 $ai->setVoltageCallbackThreshold('<', 5*1000, 0);
 
 echo "Press ctrl+c to exit\n";

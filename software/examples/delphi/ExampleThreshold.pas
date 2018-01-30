@@ -24,7 +24,7 @@ const
 var
   e: TExample;
 
-{ Callback procedure for voltage reached callback (parameter has unit mV) }
+{ Callback procedure for voltage reached callback }
 procedure TExample.VoltageReachedCB(sender: TBrickletAnalogInV2; const voltage: word);
 begin
   WriteLn(Format('Voltage: %f V', [voltage/1000.0]));
@@ -48,7 +48,7 @@ begin
   { Register voltage reached callback to procedure VoltageReachedCB }
   ai.OnVoltageReached := {$ifdef FPC}@{$endif}VoltageReachedCB;
 
-  { Configure threshold for voltage "smaller than 5 V" (unit is mV) }
+  { Configure threshold for voltage "smaller than 5 V" }
   ai.SetVoltageCallbackThreshold('<', 5*1000, 0);
 
   WriteLn('Press key to exit');

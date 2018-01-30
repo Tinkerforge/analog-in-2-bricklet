@@ -17,14 +17,14 @@ function octave_example_threshold()
     % Register voltage reached callback to function cb_voltage_reached
     ai.addVoltageReachedCallback(@cb_voltage_reached);
 
-    % Configure threshold for voltage "smaller than 5 V" (unit is mV)
+    % Configure threshold for voltage "smaller than 5 V"
     ai.setVoltageCallbackThreshold("<", 5*1000, 0);
 
     input("Press key to exit\n", "s");
     ipcon.disconnect();
 end
 
-% Callback function for voltage reached callback (parameter has unit mV)
+% Callback function for voltage reached callback
 function cb_voltage_reached(e)
     fprintf("Voltage: %g V\n", e.voltage/1000.0);
 end

@@ -22,12 +22,12 @@ Notebook[{
    RowBox[{"ai", "@", RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for voltage reached callback (parameter has unit mV)", "*)"}],
+   RowBox[{"(*", "Callback function for voltage reached callback", "*)"}],
    RowBox[{RowBox[{"VoltageReachedCB", "[", RowBox[{"sender_", ",", "voltage_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Voltage: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"voltage", ",", "\"\<V/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}]}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"ai", "@", "VoltageReachedCallback"}], ",", "VoltageReachedCB"}], "]"}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Configure threshold for voltage ", "\"\<smaller than 5 V\>\"", " (unit is mV)", "*)"}],
+   RowBox[{"(*", "Configure threshold for voltage ", "\"\<smaller than 5 V\>\"", "", "*)"}],
    RowBox[{"option", "=", "Tinkerforge`BrickletAnalogInV2`THRESHOLDUOPTIONUSMALLER"}],
    RowBox[{"ai", "@", RowBox[{"SetVoltageCallbackThreshold", "[", RowBox[{"option", ",", RowBox[{"5", "*", "1000"}], ",", "0"}], "]"}]}],
    RowBox[{"

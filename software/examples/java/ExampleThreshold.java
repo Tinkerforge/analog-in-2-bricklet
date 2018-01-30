@@ -20,14 +20,14 @@ public class ExampleThreshold {
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		ai.setDebouncePeriod(10000);
 
-		// Add voltage reached listener (parameter has unit mV)
+		// Add voltage reached listener
 		ai.addVoltageReachedListener(new BrickletAnalogInV2.VoltageReachedListener() {
 			public void voltageReached(int voltage) {
 				System.out.println("Voltage: " + voltage/1000.0 + " V");
 			}
 		});
 
-		// Configure threshold for voltage "smaller than 5 V" (unit is mV)
+		// Configure threshold for voltage "smaller than 5 V"
 		ai.setVoltageCallbackThreshold('<', 5*1000, 0);
 
 		System.out.println("Press key to exit"); System.in.read();

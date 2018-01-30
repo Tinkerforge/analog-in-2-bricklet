@@ -19,14 +19,14 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
         // Get threshold callbacks with a debounce time of 10 seconds (10000ms)
         ai.setDebouncePeriod(10000);
 
-        // Configure threshold for voltage "smaller than 5 V" (unit is mV)
+        // Configure threshold for voltage "smaller than 5 V"
         ai.setVoltageCallbackThreshold('<', 5*1000, 0);
     }
 );
 
 // Register voltage reached callback
 ai.on(Tinkerforge.BrickletAnalogInV2.CALLBACK_VOLTAGE_REACHED,
-    // Callback function for voltage reached callback (parameter has unit mV)
+    // Callback function for voltage reached callback
     function (voltage) {
         console.log('Voltage: ' + voltage/1000.0 + ' V');
     }

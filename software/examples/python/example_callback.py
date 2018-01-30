@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Analog In Bricklet 2.0
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_analog_in_v2 import BrickletAnalogInV2
 
-# Callback function for voltage callback (parameter has unit mV)
+# Callback function for voltage callback
 def cb_voltage(voltage):
     print("Voltage: " + str(voltage/1000.0) + " V")
 

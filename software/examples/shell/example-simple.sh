@@ -3,5 +3,5 @@
 
 uid=XYZ # Change XYZ to the UID of your Analog In Bricklet 2.0
 
-# Get current voltage (unit is mV)
+# Get current voltage
 tinkerforge call analog-in-v2-bricklet $uid get-voltage

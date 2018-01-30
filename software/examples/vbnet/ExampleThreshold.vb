@@ -6,7 +6,7 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Analog In Bricklet 2.0
 
-    ' Callback subroutine for voltage reached callback (parameter has unit mV)
+    ' Callback subroutine for voltage reached callback
     Sub VoltageReachedCB(ByVal sender As BrickletAnalogInV2, ByVal voltage As Integer)
         Console.WriteLine("Voltage: " + (voltage/1000.0).ToString() + " V")
     End Sub
@@ -24,7 +24,7 @@ Module ExampleThreshold
         ' Register voltage reached callback to subroutine VoltageReachedCB
         AddHandler ai.VoltageReachedCallback, AddressOf VoltageReachedCB
 
-        ' Configure threshold for voltage "smaller than 5 V" (unit is mV)
+        ' Configure threshold for voltage "smaller than 5 V"
         ai.SetVoltageCallbackThreshold("<"C, 5*1000, 0)
 
         Console.WriteLine("Press key to exit")

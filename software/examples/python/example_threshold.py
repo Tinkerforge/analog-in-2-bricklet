@@ -8,7 +8,7 @@ UID = "XYZ" # Change XYZ to the UID of your Analog In Bricklet 2.0
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_analog_in_v2 import BrickletAnalogInV2
 
-# Callback function for voltage reached callback (parameter has unit mV)
+# Callback function for voltage reached callback
 def cb_voltage_reached(voltage):
     print("Voltage: " + str(voltage/1000.0) + " V")
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Register voltage reached callback to function cb_voltage_reached
     ai.register_callback(ai.CALLBACK_VOLTAGE_REACHED, cb_voltage_reached)
 
-    # Configure threshold for voltage "smaller than 5 V" (unit is mV)
+    # Configure threshold for voltage "smaller than 5 V"
     ai.set_voltage_callback_threshold("<", 5*1000, 0)
 
     raw_input("Press key to exit\n") # Use input() in Python 3

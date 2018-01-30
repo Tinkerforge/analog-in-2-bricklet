@@ -6,10 +6,10 @@ uid=XYZ # Change XYZ to the UID of your Analog In Bricklet 2.0
 # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 tinkerforge call analog-in-v2-bricklet $uid set-debounce-period 10000
 
-# Handle incoming voltage reached callbacks (parameter has unit mV)
+# Handle incoming voltage reached callbacks
 tinkerforge dispatch analog-in-v2-bricklet $uid voltage-reached &
 
-# Configure threshold for voltage "smaller than 5 V" (unit is mV)
+# Configure threshold for voltage "smaller than 5 V"
 tinkerforge call analog-in-v2-bricklet $uid set-voltage-callback-threshold threshold-option-smaller 5000 0
 
 echo "Press key to exit"; read dummy
