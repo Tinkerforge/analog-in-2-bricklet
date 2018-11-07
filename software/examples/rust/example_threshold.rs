@@ -15,10 +15,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Get threshold receivers with a debounce time of 10 seconds (10000ms).
     ai.set_debounce_period(10000);
 
-    // Create receiver for voltage reached events.
-    let voltage_reached_receiver = ai.get_voltage_reached_receiver();
+    let voltage_reached_receiver = ai.get_voltage_reached_callback_receiver();
 
-    // Spawn thread to handle received events. This thread ends when the `ai` object
+    // Spawn thread to handle received callback messages.
+    // This thread ends when the `ai` object
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for voltage_reached in voltage_reached_receiver {
