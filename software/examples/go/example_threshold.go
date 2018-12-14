@@ -22,7 +22,7 @@ func main() {
 	ai.SetDebouncePeriod(10000)
 
 	ai.RegisterVoltageReachedCallback(func(voltage uint16) {
-		fmt.Printf("Voltage: %d V\n", float64(voltage)/1000.0)
+		fmt.Printf("Voltage: %f V\n", float64(voltage)/1000.0)
 	})
 
 	// Configure threshold for voltage "smaller than 5 V".
