@@ -3,8 +3,10 @@
 setup:
 	# Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 	publish '{"debounce": 10000}' to tinkerforge/request/analog-in-v2_bricklet/XYZ/set_debounce_period
+	
 	# Handle incoming voltage reached callbacks
 	subscribe to tinkerforge/callback/analog_in_v2_bricklet/XYZ/voltage_reached
 	publish '{"register": true}' to tinkerforge/register/analog_in_v2_bricklet/XYZ/voltage_reached # Register voltage_reached callback
+	
 	# Configure threshold for voltage "smaller than 5 V"
-	publish '{"option": "smaller", "min_voltage": 5000, "max_voltage": 0}' to tinkerforge/request/analog_in_v2_bricklet/XYZ/set_voltage_callback_threshold
+	publish '{"option": "smaller", "min": 5000, "max": 0}' to tinkerforge/request/analog_in_v2_bricklet/XYZ/set_voltage_callback_threshold
