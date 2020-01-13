@@ -4,7 +4,7 @@ setup:
 	# Handle incoming voltage callbacks
 	subscribe to tinkerforge/callback/analog_in_v2_bricklet/XYZ/voltage
 	publish '{"register": true}' to tinkerforge/register/analog_in_v2_bricklet/XYZ/voltage # Register voltage callback
-	
+
 	# Set period for voltage callback to 1s (1000ms)
 	# Note: The voltage callback is only called every second
 	#       if the voltage has changed since the last call!
